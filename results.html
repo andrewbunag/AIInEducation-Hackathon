@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Results</h1>
+    <p>You got {{ incorrect_answers_count }} incorrect answers.</p>
+    <p>Would you like to generate more questions to improve your knowledge?</p>
+    <form action="/generate_new_test" method="GET">
+        <button type="submit">Generate New Test</button>
+    </form>
+
+    <h2>Practice Questions</h2>
+    <ul>
+        {% for row in diagnostic_data %}
+        <li>
+            <p>{{ row['Question'] }}</p>
+            <p>{{ row['Answer Choices'] }}</p>
+            <label for="answer_{{ loop.index }}">Your Answer:</label>
+            <input type="text" name="answer_{{ loop.index }}" id="answer_{{ loop.index }}" required>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

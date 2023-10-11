@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diagnostic Test</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Diagnostic Test</h1>
+    <form action="/check_answers" method="POST">
+        <ul>
+            {% for row in diagnostic_data %}
+            <li>
+                <p>Question {{ loop.index }}: {{ row['Question'] }}</p>
+                <ul>
+                    {% for choice in row['Answer Choices'].split('\n') %}
+                    <li>
+                        <input type="radio" name="answer_{{ loop.index }}" value="{{ choice.strip() }}" id="answer_{{ loop.index }}_{{ loop.index0 }}">
+                        <label for="answer_{{ loop.index }}_{{ loop.index0 }}">{{ choice.strip() }}</label>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+        <input type="submit" value="Submit Answers">
+    </form>
+</body>
+</html>

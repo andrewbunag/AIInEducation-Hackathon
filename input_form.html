@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Form</title>
+</head>
+<body>
+    <h1>Generate New Questions</h1>
+    <form action="/generate_new_questions" method="POST">
+        <label for="num_incorrect">Number of Incorrect Questions:</label>
+        <input type="number" name="num_incorrect" required>
+        <label for="category">Category:</label>
+        <input type="text" name="category" required>
+        <input type="submit" value="Generate Questions">
+    </form>
+</body>
+</html>

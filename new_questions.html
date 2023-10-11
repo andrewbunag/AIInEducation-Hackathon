@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Questions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>New Questions</h1>
+    <p>Generated Questions:</p>
+    <ul>
+        {% for question in new_questions %}
+        <li>{{ question }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
